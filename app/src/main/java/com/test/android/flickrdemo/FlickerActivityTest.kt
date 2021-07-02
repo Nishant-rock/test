@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class FlickerActivityTest : AppCompatActivity() {
 
     private var mList: ArrayList<SearchDTO.Photos.Photo>? = null
     private var recyclerHome: RecyclerView? = null
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_flicker_test)
         mInit()
         val str = "Hello"
         callApi(str)
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                         Log.e("responseData", response.toString())
                     } else {
                         Toast.makeText(
-                            this@MainActivity,
+                            this@FlickerActivityTest,
                             response.errorBody().toString(),
                             Toast.LENGTH_SHORT
                         ).show()
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<SearchDTO>, t: Throwable) {
-                    Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@FlickerActivityTest, "${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
         } catch (e: Exception) {
